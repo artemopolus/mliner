@@ -1,0 +1,29 @@
+package ext.exacto.exactolink
+
+
+module exlnk_options
+{
+	@IncludeExport(path="exactolink")
+    source "exlnk_options.h"
+}
+module exlnk_get_header
+{
+    source "exlnk_getHeader.c"
+	@IncludeExport(path="exactolink")
+    source "exlnk_getHeader.h"
+    depends ext.exacto.exactolink.exlnk_options
+}
+module exlnk_set_header
+{
+    source "exlnk_setHeader.c"
+	@IncludeExport(path="exactolink")
+    source "exlnk_setHeader.h"
+    depends ext.exacto.exactolink.exlnk_options
+}
+module exlnk_cmd
+{
+    source "exlnk_Cmd.c"
+	@IncludeExport(path="exactolink")
+    source "exlnk_Cmd.h"
+    depends ext.exacto.exactolink.exlnk_options
+}

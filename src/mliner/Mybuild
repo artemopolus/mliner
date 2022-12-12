@@ -1,23 +1,10 @@
 package ext.exacto.mliner
 
-module mliner
-{
-	source "mliner.c"
-	@IncludeExport(path="mliner")
-	source "mliner.h"
-}
+
 abstract module maindev
 {
 }
-abstract module maindev_impl
-{
-}
-abstract module secdev
-{
-}
-abstract module secdev_impl
-{
-}
+
 module maindev_impl_h
 {
 	@IncludeExport(path="mliner")
@@ -25,12 +12,7 @@ module maindev_impl_h
 	@IncludeExport(path="mliner")
 	source "mliner_maindev_impl.h"
 }
-module maindev_h
-{
-	// source "mliner_maindev.h"
-	@IncludeExport(path="mliner")
-	source "mliner_maindev.h"
-}
+
 module maindev_base extends ext.exacto.mliner.maindev
 {
 	source "mliner_dev_main.c"
@@ -53,34 +35,3 @@ module main  extends exacto.mliner.mod_base
 	depends ext.exacto.mliner.mliner
 
 }
-module secdev_impl_h
-{
-	@IncludeExport(path="mliner")
-	source "mliner_basedev.h"
-	@IncludeExport(path="mliner")
-	source "mliner_secdev_impl.h"
-}
-module secdev_h
-{
-	// source "mliner_secdev.h"
-	@IncludeExport(path="mliner")
-	source "mliner_secdev.h"
-}
-module sec extends exacto.mliner.mod_sec
-{
-	source "mliner_sec.c"
-	@IncludeExport(path = "mliner")
-	source "mliner_sec.h"
-	depends ext.exacto.mliner.secdev
-	depends ext.exacto.mliner.secdev_impl
-
-	depends ext.exacto.exactolink.exlnk_set_header
-	depends ext.exacto.exactolink.exlnk_get_header
-	depends ext.exacto.exactolink.exlnk_cmd
-	depends ext.exacto.operator.buffer
-
-	depends ext.exacto.mliner.mliner
-
-}
-
-
