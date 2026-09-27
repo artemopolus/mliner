@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "exactolink/exlnk_Cmd.h"
+#include "exactolink/exlnk_Data.h"
 
 #include "mliner/mliner.h"
 

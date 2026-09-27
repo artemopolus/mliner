@@ -78,4 +78,13 @@ void exlnk_uploadCmdHeader(exlnk_set_header_str_t * trg, exlnk_cmd_str_t * cmd)
    exlnk_CmdToArray(cmd, tmp, 12);
     exlnk_uploadHeader(trg, tmp, 12);
 }
-
+extern void exlnk_uploadDataHeader(exlnk_set_header_str_t * trg, exlnk_data_str_t * cmd, uint8_t * tmp_buffer, uint16_t * tmp_len)
+{
+    cmd->mnum = trg->adr;
+    cmd->mnum +=  trg->cnt << 8;
+    cmd->mnum &= 0x00FFFFFF;
+    cmd->mnum += trg->packs >> 24;
+    uint16_t pack_length = exlnk_DataToArray( cmd, tmp_buffer, tmp_len);
+    if (pack_length > 0)
+        exlnk_uploadHeader( trg, tmp_buffer, pack_length);
+}

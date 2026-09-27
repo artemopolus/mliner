@@ -195,6 +195,10 @@ void exmliner_Upload(void * data, size_t len, uint8_t id, uint16_t adr)
 		exlnk_CmdAckToArray((exlnk_cmdack_str_t*)data, TmpBuffer, 100);
 		exlnk_uploadHeader(&trg->header, TmpBuffer, len);
 	}
+	else if ( id == EXLNK_DATA_ID_DATA)
+	{
+		exlnk_uploadDataHeader( &trg->header, (exlnk_data_str_t*)data, TmpBuffer, EXACTO_BUFFER_UINT8_SZ);
+	}
 	else
 		return;
 }

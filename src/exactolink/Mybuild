@@ -19,11 +19,19 @@ module exlnk_set_header
 	@IncludeExport(path="exactolink")
     source "exlnk_setHeader.h"
     depends ext.exacto.exactolink.exlnk_options
+    depends ext.exacto.exactolink.exlnk_data
 }
 module exlnk_cmd
 {
     source "exlnk_Cmd.c"
 	@IncludeExport(path="exactolink")
     source "exlnk_Cmd.h"
+    depends ext.exacto.exactolink.exlnk_options
+}
+module exlnk_data
+{
+    source "exlnk_Data.c"
+	@IncludeExport(path="exactolink")
+    source "exlnk_Data.h"
     depends ext.exacto.exactolink.exlnk_options
 }

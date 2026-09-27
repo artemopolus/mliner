@@ -3,6 +3,7 @@
 
 #include "exactolink/exlnk_options.h"
 #include "exactolink/exlnk_Cmd.h"
+#include "exactolink/exlnk_Data.h"
 
 typedef struct exlnk_set_header_str{
     uint16_t adr;
@@ -28,7 +29,6 @@ extern void exlnk_fillHeader(exlnk_set_header_str_t * trg, uint16_t adr, uint8_t
 extern void exlnk_uploadHeader(exlnk_set_header_str_t * trg, uint8_t * datasrc, uint16_t datalen);
 extern void exlnk_closeHeader(exlnk_set_header_str_t * trg);
 extern void exlnk_uploadCmdHeader(exlnk_set_header_str_t * trg, exlnk_cmd_str_t * cmd);
-
-
+extern void exlnk_uploadDataHeader(exlnk_set_header_str_t * trg, exlnk_data_str_t * cmd, uint8_t * tmp_buffer, uint16_t * tmp_len);
 
 #endif
